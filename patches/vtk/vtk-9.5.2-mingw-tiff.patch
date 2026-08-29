@@ -1,0 +1,25 @@
+--- a/ThirdParty/tiff/vtktiff/libtiff/tiffiop.h
++++ b/ThirdParty/tiff/vtktiff/libtiff/tiffiop.h
+@@
+-    vtktiff_EXPORT TIFFErrorHandler _TIFFwarningHandler;
+-    vtktiff_EXPORT TIFFErrorHandler _TIFFerrorHandler;
+-    vtktiff_EXPORT TIFFErrorHandlerExt _TIFFwarningHandlerExt;
+-    vtktiff_EXPORT TIFFErrorHandlerExt _TIFFerrorHandlerExt;
++#ifdef _WIN32
++    extern vtktiff_EXPORT TIFFErrorHandler _TIFFwarningHandler;
++    extern vtktiff_EXPORT TIFFErrorHandler _TIFFerrorHandler;
++    extern vtktiff_EXPORT TIFFErrorHandlerExt _TIFFwarningHandlerExt;
++    extern vtktiff_EXPORT TIFFErrorHandlerExt _TIFFerrorHandlerExt;
++#else
++    vtktiff_EXPORT TIFFErrorHandler _TIFFwarningHandler;
++    vtktiff_EXPORT TIFFErrorHandler _TIFFerrorHandler;
++    vtktiff_EXPORT TIFFErrorHandlerExt _TIFFwarningHandlerExt;
++    vtktiff_EXPORT TIFFErrorHandlerExt _TIFFerrorHandlerExt;
++#endif
+@@
+-    vtktiff_EXPORT const TIFFCodec _TIFFBuiltinCODECS[];
++#ifdef _WIN32
++    extern vtktiff_EXPORT const TIFFCodec _TIFFBuiltinCODECS[];
++#else
++    vtktiff_EXPORT const TIFFCodec _TIFFBuiltinCODECS[];
++#endif

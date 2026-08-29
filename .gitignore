@@ -1,0 +1,83 @@
+# Build and distribution output
+/build/
+/out/
+/dist/
+/install/
+CMakeUserPresets.json
+CMakeCache.txt
+compile_commands.json
+
+# Third-party source and SDKs are prepared locally
+/third_party/
+
+# Local databases, samples and generated engineering artifacts
+/data/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.odb
+*.lck
+*.sim
+*.sta
+*.msg
+*.dat
+*.prt
+*.com
+*.res
+*.stt
+*.mdl
+*.pac
+*.abq
+*.sel
+*.ipm
+*.inp
+*.obj
+*.stl
+*.vti
+*.vtp
+*.vtu
+*_skipped.face
+*_skipped.node
+
+# Compiled files and runtime packages
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# Logs, caches and temporary files
+*.log
+*.tmp
+*.bak
+*.pyc
+__pycache__/
+.cache/
+.pytest_cache/
+
+# User-specific IDE and operating-system state
+.idea/
+.vscode/
+*.user
+*.suo
+.vs/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json

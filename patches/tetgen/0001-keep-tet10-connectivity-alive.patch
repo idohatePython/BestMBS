@@ -1,0 +1,61 @@
+diff --git a/tetgen.cxx b/tetgen.cxx
+index 899a47b..a47ca80 100644
+--- a/tetgen.cxx
++++ b/tetgen.cxx
+@@ -33331,7 +33331,10 @@ void tetgenmesh::highorder()
+   }
+ 
+   // Initialize the 'highordertable'.
+-  point *highordertable = new point[tetrahedrons->items * 6];
++  if (highordertable != (point *) NULL) {
++    delete [] highordertable;
++  }
++  highordertable = new point[tetrahedrons->items * 6];
+   if (highordertable == (point *) NULL) {
+     terminatetetgen(this, 1);
+   }
+@@ -33402,7 +33405,9 @@ void tetgenmesh::highorder()
+     tetloop.tet = tetrahedrontraverse();
+   }
+ 
+-  delete [] highordertable;
++  // Keep the table alive until all quadratic output routines have consumed
++  // the pointers stored in tetrahedron slot 11.  It is released by
++  // tetgenmesh::freememory().
+ }
+ 
+ //============================================================================//
+diff --git a/tetgen.h b/tetgen.h
+index ef67b5d..59c9c10 100644
+--- a/tetgen.h
++++ b/tetgen.h
+@@ -1358,6 +1358,10 @@ public:
+   //   segments) and extra pointers between tetrahedra, subfaces, and segments.
+   memorypool *tetrahedrons, *subfaces, *subsegs, *points;
+   memorypool *tet2subpool, *tet2segpool;
++  // MBS MinGW fix: quadratic element connectivity keeps pointers into this
++  // table until outelements()/outfaces()/outedges() have finished.  TetGen
++  // 1.6 released it at the end of highorder(), leaving dangling pointers.
++  point *highordertable;
+ 
+   // Memorypools to store bad-quality (or encroached) elements.
+   memorypool *badtetrahedrons, *badsubfacs, *badsubsegs;
+@@ -2251,6 +2255,7 @@ public:
+ 
+     tetrahedrons = subfaces = subsegs = points = NULL;
+     tet2segpool = tet2subpool = NULL;
++    highordertable = NULL;
+     dummypoint = NULL;
+ 
+     badtetrahedrons = badsubfacs = badsubsegs = NULL;
+@@ -2350,6 +2355,10 @@ public:
+ 
+   void freememory()
+   {
++    if (highordertable != NULL) {
++      delete [] highordertable;
++      highordertable = NULL;
++    }
+     if (bgm != NULL) {
+       delete bgm;
+     }

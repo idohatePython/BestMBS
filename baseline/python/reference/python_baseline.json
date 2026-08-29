@@ -1,0 +1,225 @@
+{
+  "case_schema_version": 1,
+  "domain": {
+    "estimated_grid_points": 3791680,
+    "estimated_memory_bytes": 728002560,
+    "validation_errors": {
+      "mu_constraint": "mu must satisfy 0 <= mu <= 1 - lmd",
+      "task_progress": "Task progress must be in [0, 1]"
+    }
+  },
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "pyside6": "6.8.1",
+    "python": "3.9.23",
+    "pyvista": "0.45.0",
+    "scikit_learn": "1.6.1",
+    "scikit_optimize": "0.10.2",
+    "scipy": "1.13.1"
+  },
+  "geometry": {
+    "case_id": "mixed_surface_m20",
+    "metadata": {
+      "bta": -0.15,
+      "files": {
+        "tet_a": "",
+        "tet_b": "",
+        "tri_a": "tpms-tri-A.inp",
+        "tri_b": "tpms-tri-B.inp",
+        "visualization": "visualization"
+      },
+      "kpa": 0.4,
+      "len_pct": 5.0,
+      "lmd": 0.35,
+      "m": 20,
+      "mu": 0.25,
+      "rep_z": 1,
+      "rnd_x": 0.125,
+      "rnd_y": 0.375,
+      "schema_version": 2,
+      "tet_generated": false,
+      "thk_p": 1.0,
+      "wth": 10.0
+    },
+    "part_a": {
+      "area": 561.129925456787,
+      "bounds": [
+        -5.0,
+        5.0,
+        -5.0,
+        5.0,
+        -6.0,
+        4.121183395386
+      ],
+      "connected_components": 1,
+      "is_manifold": true,
+      "open_edges": 0,
+      "points": 18477,
+      "triangles": 36950,
+      "volume": 647.343968968618
+    },
+    "part_b": {
+      "area": 474.091267408149,
+      "bounds": [
+        -5.0,
+        5.0,
+        -5.0,
+        5.0,
+        -2.392418384552,
+        6.0
+      ],
+      "connected_components": 1,
+      "is_manifold": true,
+      "open_edges": 0,
+      "points": 17439,
+      "triangles": 34874,
+      "volume": 552.644313332269
+    },
+    "required_files": [
+      "mesh_metadata.json",
+      "tpms-tri-A.inp",
+      "tpms-tri-A.obj",
+      "tpms-tri-B.inp",
+      "tpms-tri-B.obj"
+    ]
+  },
+  "implicit_field": {
+    "gyroid_boundary": 0.0,
+    "mixed_negative": -0.072004506574,
+    "mixed_positive": 0.940809781718,
+    "origin_fks": 0.0
+  },
+  "optimization": {
+    "EI": {
+      "acq_func": "EI",
+      "evaluated_count": 12,
+      "initial_points_remaining": -2,
+      "params": [
+        0.9965,
+        0.0017,
+        0.852,
+        0.2329
+      ]
+    },
+    "LCB": {
+      "acq_func": "LCB",
+      "evaluated_count": 12,
+      "initial_points_remaining": -2,
+      "params": [
+        0.9846,
+        0.0076,
+        0.9917,
+        -0.0446
+      ]
+    },
+    "PI": {
+      "acq_func": "PI",
+      "evaluated_count": 12,
+      "initial_points_remaining": -2,
+      "params": [
+        0.4273,
+        0.2586,
+        0.7222,
+        0.0005
+      ]
+    }
+  },
+  "profile": "full",
+  "proof_curve": {
+    "elastic_modulus": 1000.0,
+    "offset_stress": [
+      -2.0,
+      -1.0,
+      1.0,
+      4.0,
+      8.0
+    ],
+    "proof_strain": 0.0048,
+    "proof_strain_percent": 0.48,
+    "proof_stress": 2.8,
+    "rep_z": 3,
+    "status": "ok",
+    "strain": [
+      0.0,
+      0.001,
+      0.003,
+      0.006,
+      0.01
+    ],
+    "stress": [
+      0.0,
+      1.0,
+      2.5,
+      3.0,
+      3.2
+    ],
+    "wth": 10.0
+  },
+  "schema_version": 1,
+  "sqlite": {
+    "first_migrated": true,
+    "integrity_check": "ok",
+    "preserved_extra_column": "preserve-me",
+    "rows": 1,
+    "second_migrated": false,
+    "table_counts": {
+      "artifacts": 2,
+      "materials": 1,
+      "metrics": 2,
+      "optimization_observations": 1,
+      "pending_optimization": 1,
+      "projects": 1,
+      "runs": 1,
+      "samples": 1,
+      "schema_migrations": 2,
+      "tasks": 0
+    },
+    "user_version": 2
+  },
+  "tetrahedron_metrics": {
+    "min_dihedral_deg": [
+      54.735610317245,
+      70.528779365509
+    ],
+    "min_edge_mm": [
+      1.0,
+      1.414213562373
+    ],
+    "min_height_mm": [
+      0.57735026919,
+      1.154700538379
+    ],
+    "normalized_volume": [
+      0.76980035892,
+      1.0
+    ],
+    "radius_edge_ratio": [
+      0.866025403784,
+      0.612372435696
+    ],
+    "signed_volume": [
+      0.166666666667,
+      0.333333333333
+    ],
+    "volume": [
+      0.166666666667,
+      0.333333333333
+    ]
+  },
+  "worker_protocol": {
+    "decoded": {
+      "artifact": {
+        "kind": "surface",
+        "uri": "A.vtp"
+      },
+      "event": "progress",
+      "message": "几何基线",
+      "progress": 0.375,
+      "protocol_version": 1,
+      "task_id": "task-golden"
+    },
+    "prefix": "TPMS_EVENT:"
+  }
+}
